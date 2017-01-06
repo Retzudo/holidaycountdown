@@ -1,9 +1,11 @@
 click==6.6
 Flask==0.12
+gunicorn==19.6.0
 icalendar==3.11.1
 itsdangerous==0.24
 Jinja2==2.8.1
 MarkupSafe==0.23
+pkg-resources==0.0.0
 python-dateutil==2.6.0
 pytz==2016.10
 six==1.10.0
