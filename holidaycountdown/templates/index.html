@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Next Holiday</title>
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Der nächste gesetzliche Feiertag an einem Werktag ist</p>
+        <h1 id="name">{{ holiday.name }}</h1>
+        <h2 id="date">{{ holiday.holiday_date }}</h2>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/locale/de-at.js"></script>
+    <script>
+        (function () {
+            moment.locale('de-at');
+            var dateElement = document.getElementById('date');
+            var dateText = dateElement.textContent;
+            var date = moment(dateText, 'YYYY-MM-DD');
+
+                dateElement.innerText = date.fromNow();
+            setInterval(function () {
+                dateElement.innerText = date.fromNow();
+            }, 60 * 1000);
+        }());
+    </script>
+</body>
+</html>
