@@ -25,7 +25,7 @@ class Holiday:
         return self.holiday_date == other.holiday_date
 
 
-def read_holidays(ics_location: str):
+def read_holidays(ics_location: str) -> Calendar:
     with open(ics_location) as f:
         ics = f.read()
 

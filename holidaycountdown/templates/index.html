@@ -8,8 +8,14 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <title>Next Holiday</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         html, body {
             height: 100%;
+            margin: 0;
+            padding: 1rem;
         }
 
         body {
@@ -19,10 +25,14 @@
             justify-content: center;
             font-family: 'Roboto', sans-serif;
         }
+
+        .container {
+            padding-bottom: 3rem;
+        }
     </style>
 </head>
 <body>
-    <div>
+    <div class="container">
         <p>Der nächste gesetzliche Feiertag an einem Werktag ist</p>
         <h1 id="name">{{ holiday.name }}</h1>
         <h2 id="date">{{ human_date }}</h2>
