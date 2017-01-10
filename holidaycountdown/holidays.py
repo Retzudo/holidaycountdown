@@ -11,11 +11,9 @@ class Holiday:
         self.name = name
 
     def __str__(self):
-        return '{} on {}.{}.{}'.format(
+        return '{} on {}'.format(
             self.name,
-            self.holiday_date.year,
-            self.holiday_date.month,
-            self.holiday_date.day,
+            self.holiday_date,
         )
 
     def __lt__(self, other):
@@ -26,6 +24,7 @@ class Holiday:
 
 
 def read_holidays(ics_location: str) -> Calendar:
+    """Read a ICS file and return a Calendar object."""
     with open(ics_location) as f:
         ics = f.read()
 
@@ -33,6 +32,10 @@ def read_holidays(ics_location: str) -> Calendar:
 
 
 def convert_holidays(calendar: Calendar) -> list:
+    """Convert dates in a Calendar object to a list of Holiday objects.
+    
+    Also only include holidays that are not on weeksends and by law.
+    """
     holidays = []
     today = date.today()
 
@@ -51,6 +54,7 @@ def convert_holidays(calendar: Calendar) -> list:
 
 
 def get_next_holiday(holidays: list) -> Holiday:
+    """Return a Holiday object for the next Holiday coming."""
     today = date.today()
     for holiday in holidays:
         if holiday.holiday_date > today:
