@@ -6,6 +6,7 @@ from datetime import date
 
 @total_ordering
 class Holiday:
+    """A class representing a holiday consisting of its date and name."""
     def __init__(self, holiday_date: date, name: str):
         self.holiday_date = holiday_date
         self.name = name
@@ -54,7 +55,7 @@ def convert_holidays(calendar: Calendar) -> list:
 
 
 def get_next_holiday(holidays: list) -> Holiday:
-    """Return a Holiday object for the next Holiday coming."""
+    """Return a Holiday object for the next holiday coming."""
     today = date.today()
     for holiday in holidays:
         if holiday.holiday_date > today:
